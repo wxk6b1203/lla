@@ -5,9 +5,20 @@ LLA(Latitude and longitude to Address) is a little script convert Latitude and l
 
 It may only usable in Mainland China.
 
+#### Instance method
+1. Interactive mode: input a longitude and latitude, which is seperated by space, and then output a address.
+2. TXT mode: input a directory of a txt file, which is formatted into particular format. Output to a file or append it to the back of each line.
+	format:
+	```
+	longitude latitude
+	123 55
+	```
+3. xls mode: read ll from xls, then output address. The xls should include two pure colums, which refer to longitude and latitude.
+4. Both txt mode and xls mode should give param "file", or "-a" regard appending to each line.
+
 #### Usage
 ```
-usage: main.py [-h] [-i] [-rt TXT] [-rx XLS] [-ox OX] [-ot OT] [-a]
+usage: python3 main.py [-h] [-i] [-rt TXT] [-rx XLS] [-ox OX] [-ot OT] [-a]
 
 Lati tude and longitude to Address
 
