@@ -21,8 +21,8 @@ It may only usable in Mainland China.
 ##### Install dependency
 Before using this script, you should install **python3.5** or later version. Then run script `setup.h`
 ```bash
-	chmod a+x setup.h
-	./setup.h
+	chmod a+x setup.sh
+	./setup.sh
 ```
 This script will compile the dynamic lib and check your dependency of python module. If it can't be used, you could install module manually, including `requests`, `json`, `xlrd`, `xlwt`.
 ```
