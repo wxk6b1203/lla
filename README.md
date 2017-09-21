@@ -6,4 +6,18 @@ LLA(Latitude and longitude to Address) is a little script convert Latitude and l
 It may only usable in Mainland China.
 
 #### Usage
-developing....
+```
+usage: main.py [-h] [-i] [-rt TXT] [-rx XLS] [-ox OX] [-ot OT] [-a]
+
+Lati tude and longitude to Address
+
+optional arguments:
+  -h, --help          show this help message and exit
+  -i, --intereactive  Interactive mode.
+  -rt TXT, --txt TXT  Read from txt(see docs for format)
+  -rx XLS, --xls XLS  Read from xls
+  -ox OX              Write to xls
+  -ot OT              Write to txt
+  -a                  Appending mode(write out only)
+
+```

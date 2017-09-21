@@ -25,6 +25,8 @@ def main():
                         help="Write to xls")
     parser.add_argument('-ot', type=str,
                         help="Write to txt")
+    parser.add_argument('-a', action="store_true",
+                        help="Appending mode(write out only)")
     args = parser.parse_args()
     if args.intereactive is False and args.txt is None and args.xls is None:
         parser.print_help()
