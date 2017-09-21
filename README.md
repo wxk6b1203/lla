@@ -17,19 +17,19 @@ It may only usable in Mainland China.
 4. Both txt mode and xls mode should give param "file", or "-a" regard appending to each line.
 
 #### Usage
-```
-usage: python3 main.py [-h] [-i] [-rt TXT] [-rx XLS] [-ox OX] [-ot OT] [-a]
+```bash
+usage: python3 main.py [-h] [-i] [-rt TXT] [-rx XLS] [-ox XLSDEST] [-ot TXTDEST] [-a] [-v]
 
 Lati tude and longitude to Address
 
 optional arguments:
   -h, --help          show this help message and exit
-  -i, --intereactive  Interactive mode.
+  -i, --intereactive  Interactive mode. Input 'q' to quick
   -rt TXT, --txt TXT  Read from txt(see docs for format)
   -rx XLS, --xls XLS  Read from xls
-  -ox OX              Write to xls
-  -ot OT              Write to txt
+  -ox XLSDEST         Write to xls
+  -ot TXTDEST         Write to txt
   -a                  Appending mode(write out only)
-
+  -v, --version       show program's version number and exit
 ```
 developing.....

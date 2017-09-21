@@ -19,7 +19,7 @@ class MC(Structure):
     _fields_ = [("x", c_double), ("y", c_double)]
 
 
-def getPos():
+def getPos(mode, target, infile, outfile):
     """TODO: get pos of MC
 
     :x: TODO
@@ -30,7 +30,6 @@ def getPos():
     libtest = cdll.LoadLibrary(os.getcwd() + '/mc.so')
     libtest.convertLL2MC.restype = MC
     libtest.convertLL2MC.argtypes = (c_double, c_double)
-    # data = xlrd.open_workbook('./newAsn.xls')
     table = data.sheets()[1]
     # x = table.col_values(0)
     del x[0]
@@ -47,7 +46,3 @@ def getPos():
         resUltimateJson = json.loads(r.text, object_hook=JSONObject)
         # print(resUltimateJson)
         print(resUltimateJson.content.address)
-
-
-if __name__ == "__main__":
-    getPos()
