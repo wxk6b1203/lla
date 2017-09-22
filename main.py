@@ -30,7 +30,7 @@ def main():
                         help="Read from txt(see docs for format)")
     parser.add_argument('-rx', '--xls', type=str, dest="xls",
                         help="Read from xls")
-    parser.add_argument('-ox', type=str, dest="xlsDest",
+    parser.add_argument('-ox', type=str, dest="xlsDest", default="data.xls",
                         help="Write to xls")
     parser.add_argument('-ot', type=str, dest="txtDest",
                         help="Write to txt")
@@ -52,10 +52,10 @@ def main():
         elif args.xls is not None:
             inFormat = "xls"
             inFile = args.xls
-        if args.xlsDest is not None:
+        if args.txtDest is not None:
             outFormat = "xls"
             outFile = args.xlsDest
-        elif args.txtDest is not None:
+        else:
             outFormat = "txt"
             outFile = args.txtDest
 
