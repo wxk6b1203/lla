@@ -28,27 +28,30 @@ def parseAndRequest(lon, lag):
     :returns: address
 
     """
-    # Load library
+    # Load Library of MC convertor
     libtest = cdll.LoadLibrary(os.getcwd() + '/mc.so')
     libtest.convertLL2MC.restype = MC
     libtest.convertLL2MC.argtypes = (c_double, c_double)
-    it = libtest.convertLL2MC(lon, lag)
-    res = {"x": it.x, "y": it.y, "qt": "rgc", "dis_poi": 1}
+    pos = libtest.convertLL2MC(lon, lag)
+    res = {"x": pos.x, "y": pos.y, "qt": "rgc", "dis_poi": 1}
     r = requests.get('http://api.map.baidu.com/', params=res)
     resUltimateJson = json.loads(r.text, object_hook=JSONObject)
+
     return resUltimateJson.content.address
 
 
 def getPos(inFormat, inFile, outFormat, outFile, append):
     """TODO: get pos of MC
 
-    :x: TODO
-    :y: TODO
-    :returns: TODO
-
+    :inFormat: input format
+    :inFile: input File
+    :outFormat: output file
+    :outFile: output file
+    :append: append mode chosen
     """
+    # Get the result
     res = []
-    # Load Library of MC convertor
+
     if inFormat is "txt":
         inf = open(inFile, 'rt')
         try:
@@ -80,10 +83,3 @@ def getPos(inFormat, inFile, outFormat, outFile, append):
                 for item in range(0, len(x)):
                     line = outf.readline()
                     line = line + res[item]
-    #  table = data.sheets()[1]
-    # x = table.col_values(0)
-    #  del x[0]
-    #  y = table.col_values(1)
-    #  del y[0]
-    #  res = []
-    # print(it.x, it.y)
