@@ -6,15 +6,24 @@ LLA(Latitude and longitude to Address) is a little script convert Latitude and l
 It may only usable in Mainland China.
 
 ### Instant method
-1. Interactive mode: input a longitude and latitude, which is seperated by space, and then output a address.
+1. Interactive mode: input a longitude and latitude, which is seperated by space, and then output a address.  
+	**At this moment interactive is ready to be used**  
+	```
+	$python3 main.py -i
+	113.658023 23.098621
+	广东省东莞市东莞市市辖区觉华路32
+	113.658023,23.098621
+	广东省东莞市东莞市市辖区觉华路32
+	113.800681,23.039038
+	广东省东莞市东莞市市辖区振兴路100号
+	```
 2. TXT mode: input a directory of a txt file, which is formatted into particular format. Output to a file or append it to the back of each line.
 	format:
 	```
 	longitude latitude
 	123 55
 	```
-	*Notes: both space and comma are okey. Because it is parse by regex*  
-	**At this moment interactive is ready to be used**
+	*Notes: both space and comma are okey. Because it is parse by regex*
 3. xls mode: read ll from xls, then output address. The xls should include two colums, which refer to longitude and latitude.
 	format:
 	```
