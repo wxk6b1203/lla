@@ -34,7 +34,7 @@ def main():
                         help="Write to xls")
     parser.add_argument('-ot', type=str, dest="txtDest",
                         help="Write to txt")
-    parser.add_argument('-a', '--append', action="store_true",
+    parser.add_argument('-a', '--append', action="store_true", default=False,
                         help="Appending mode(write out only)")
     parser.add_argument('-v', '--version',
                         action='version',
