@@ -29,7 +29,7 @@ def parseAndRequest(lon, lag):
 
     """
     # Load Library of MC convertor
-    libtest = cdll.LoadLibrary(os.getcwd() + '/mc.so')
+    libtest = cdll.LoadLibrary(os.getcwd() + '/src/mc.so')
     libtest.convertLL2MC.restype = MC
     libtest.convertLL2MC.argtypes = (c_double, c_double)
     pos = libtest.convertLL2MC(lon, lag)
@@ -38,6 +38,23 @@ def parseAndRequest(lon, lag):
     resUltimateJson = json.loads(r.text, object_hook=JSONObject)
 
     return resUltimateJson.content.address
+
+
+def interv():
+    """Interactive mode for getting address
+    :returns: TODO
+
+    """
+    while 1:
+        getStr = input()
+        lon = re.findall('([-+]?\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?',
+                         getStr)[0][0]
+        lag = re.findall('([-+]?\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?',
+                         getStr)[1][0]
+        lon = float(lon)
+        lag = float(lag)
+        res = parseAndRequest(lon, lag)
+        print(res)
 
 
 def getPos(inFormat, inFile, outFormat, outFile, append):

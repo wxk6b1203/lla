@@ -44,7 +44,7 @@ def main():
     if args.intereactive is False and args.txt is None and args.xls is None:
         parser.print_help()
     elif args.intereactive is True:
-        gp.interactive()
+        gp.interv()
     else:
         if args.txt is not None:
             inFormat = "txt"

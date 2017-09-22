@@ -13,6 +13,8 @@ It may only usable in Mainland China.
 	longitude latitude
 	123 55
 	```
+	*Notes: both space and comma are okey. Because it is parse by regex*
+	**At this moment interactive is ready to be used**
 3. xls mode: read ll from xls, then output address. The xls should include two colums, which refer to longitude and latitude.
 	format:
 	```

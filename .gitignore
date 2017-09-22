@@ -30,3 +30,4 @@
 # python cache
 *.pyc
 .DS_Store
+__pycache__
