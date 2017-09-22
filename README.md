@@ -7,6 +7,7 @@ It may only usable in Mainland China.
 
 ### Instant method
 1. Interactive mode: input a longitude and latitude, which is seperated by space, and then output a address.  
+	*Notes: both space and comma are okey. Because it is parsed by regex*
 	**At this moment interactive is ready to be used**  
 	```
 	$python3 main.py -i
@@ -17,13 +18,14 @@ It may only usable in Mainland China.
 	113.800681,23.039038
 	广东省东莞市东莞市市辖区振兴路100号
 	```
+	You could input any other thing causing an error to quit.:(
 2. TXT mode: input a directory of a txt file, which is formatted into particular format. Output to a file or append it to the back of each line.
 	format:
 	```
 	longitude latitude
 	123 55
 	```
-	*Notes: both space and comma are okey. Because it is parse by regex*
+	The first line must include header, if not, it will cause an error and exit.
 3. xls mode: read ll from xls, then output address. The xls should include two colums, which refer to longitude and latitude.
 	format:
 	```
@@ -31,6 +33,7 @@ It may only usable in Mainland China.
 	(1) longitude latitude
 	(2) 123       55
 	```
+	Format is important!
 4. Both txt mode and xls mode should give param "file", or "-a" regard appending to each line.
 
 ### Usage
@@ -63,4 +66,6 @@ optional arguments:
   -v, --version       show program's version number and exit
 ```
 #### Notes
-*xlsx is currently not supported.*
+ - *xlsx is currently not supported.*
+ - Three args of `-i`, `-rt` and `-ox` could be parsed with one. Otherwise, they are **relevantly exclusive**.
+ - `ox`, `ot` are obay the same rule as above.
