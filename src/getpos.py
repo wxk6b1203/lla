@@ -27,15 +27,25 @@ def getPos(mode, target, infile, outfile):
     :returns: TODO
 
     """
+    # Load Library of MC convertor
     libtest = cdll.LoadLibrary(os.getcwd() + '/mc.so')
     libtest.convertLL2MC.restype = MC
     libtest.convertLL2MC.argtypes = (c_double, c_double)
-    table = data.sheets()[1]
+    if mode is "txt":
+        inf = open(infile, 'rt')
+        try:
+            readLine = inf.readline()
+            while 1:
+                readLine = inf.readline()
+        except Exception as e:
+            pass
+
+    #  table = data.sheets()[1]
     # x = table.col_values(0)
-    del x[0]
-    y = table.col_values(1)
-    del y[0]
-    res = []
+    #  del x[0]
+    #  y = table.col_values(1)
+    #  del y[0]
+    #  res = []
     # print(it.x, it.y)
     for i in range(0, len(x)):
         it = libtest.convertLL2MC(y[i], x[i])
