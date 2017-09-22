@@ -34,7 +34,7 @@ def main():
                         help="Write to xls")
     parser.add_argument('-ot', type=str, dest="txtDest",
                         help="Write to txt")
-    parser.add_argument('-a', action="store_true",
+    parser.add_argument('-a', '--append', action="store_true",
                         help="Appending mode(write out only)")
     parser.add_argument('-v', '--version',
                         action='version',
@@ -59,7 +59,7 @@ def main():
             outFormat = "txt"
             outFile = args.txtDest
 
-        gp.getPos(inFormat, inFile, outFormat, outFile)
+        gp.getPos(inFormat, inFile, outFormat, outFile, args.append)
 
 
 if __name__ == '__main__':

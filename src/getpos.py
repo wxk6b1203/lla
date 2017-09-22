@@ -39,7 +39,7 @@ def parseAndRequest(lon, lag):
     return resUltimateJson.content.address
 
 
-def getPos(mode, target, infile, outfile):
+def getPos(inFormat, inFile, outFormat, outFile, append):
     """TODO: get pos of MC
 
     :x: TODO
@@ -49,8 +49,8 @@ def getPos(mode, target, infile, outfile):
     """
     res = []
     # Load Library of MC convertor
-    if mode is "txt":
-        inf = open(infile, 'rt')
+    if inFormat is "txt":
+        inf = open(inFile, 'rt')
         try:
             readLine = inf.readline()
             while 1:
@@ -61,15 +61,25 @@ def getPos(mode, target, infile, outfile):
                                  readLine)[1][0]
                 res.append(parseAndRequest(lon, lag))
         except Exception as e:
-            pass
-    elif mode is "xls":
-        data = xlrd.open_workbook(infile)
+            inf.close()
+            print("Read done.")
+    elif inFormat is "xls":
+        data = xlrd.open_workbook(inFile)
         table = data.sheets()[0]
         x = table.col_values(0)
         y = table.col_values(1)
         del x[0]
         del y[0]
+        for item in range(0, len(x)):
+            res.append(parseAndRequest(x[item], y[item]))
 
+    if outFormat is "txt":
+        if append is True:
+            with open(inFile, 'w+') as outf:
+                outf.readline()
+                for item in range(0, len(x)):
+                    line = outf.readline()
+                    line = line + res[item]
     #  table = data.sheets()[1]
     # x = table.col_values(0)
     #  del x[0]
