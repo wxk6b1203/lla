@@ -3,7 +3,7 @@
 ### Introduction
 LLA(Latitude and longitude to Address) is a little script convert Latitude and longitude position to address using baidu API, which uses a tool to convert ll to MC address, and then get data from Baidu. All the injected logic is based on [saitjr's blog](http://www.saitjr.com/uncategorized/baidu-location-picker-interface.html) and [his repo](https://github.com/saitjr/STConvertLL2MC). The command line interface is done by myself.
 
-It may only usable in Mainland China.
+It may only enable address in Mainland China.
 
 ### Instant method
 1. Interactive mode: input a longitude and latitude, which is seperated by space, and then output a address.  
@@ -69,3 +69,5 @@ optional arguments:
  - *xlsx is currently not supported.*
  - Three args of `-i`, `-rt` and `-ox` could be parsed with one. Otherwise, they are **relevantly exclusive**.
  - `ox`, `ot` are obay the same rule as above.
+ - If you have any suggestions, please open an issue or PR.
+ - Feel free to fork it.

@@ -24,7 +24,7 @@ def parseAndRequest(lon, lag):
     """parse longtitude and latitude then send request
 
     :lon: Longitude
-    :lag: lagitude
+    :lag: latitude
     :returns: address
 
     """
