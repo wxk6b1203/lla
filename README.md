@@ -80,10 +80,15 @@ optional arguments:
  - `ox`, `ot` are obay the same rule as above.
  - If you have any suggestions, please open an issue or PR.
  - Feel free to fork it.
+
+
 #### Help wantted and might being implemented
+
 1. Fix bug and function implementation
 2. Let me see.....
+
 #### Help wantted but does not plan to implement
+
 1. Mercator Coordinate to LL
 2. Convert LL to Address
 3. Suspectious api:
