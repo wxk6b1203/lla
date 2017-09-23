@@ -4,13 +4,22 @@
 LLA(Latitude and longitude to Address) is a little script convert Latitude and longitude position to address using baidu API, which uses a tool to convert ll to MC address, and then get data from Baidu. All the injected logic is based on [saitjr's blog](http://www.saitjr.com/uncategorized/baidu-location-picker-interface.html) and [his repo](https://github.com/saitjr/STConvertLL2MC). The command line interface is done by myself.
 
 It may only enable address in Mainland China.
+### Requirement
+1. Python3 or later version (As for the setup.sh script, it may disable in other system exclude macOS)
+2. pip dependency:
+	1. xlrd
+	2. xlwt
+	3. requests
+	4. gcc or clang
+
+A depressing stuff is, the setup srcipt doesnot work most of the time. You should install dependencies manually.
 
 ### Instant method
 1. Interactive mode: input a longitude and latitude, which is seperated by space, and then output a address.  
 	*Notes: both space and comma are okey. Because it is parsed by regex*
 	**At this moment interactive is ready to be used**  
 	```
-	$python3 main.py -i
+	$python3 lla.py -i
 	113.658023 23.098621
 	广东省东莞市东莞市市辖区觉华路32
 	113.658023,23.098621
@@ -49,9 +58,9 @@ This script will compile the dynamic lib and check your dependency of python mod
 python3 -m pip install MODULE
 ```
 
-Then is the usage.
+##### Usage
 ```
-usage: python3 main.py [-h] [-i] [-rt TXT] [-rx XLS] [-ox XLSDEST] [-ot TXTDEST] [-a] [-v]
+usage: python3 lla.py [-h] [-i] [-rt TXT] [-rx XLS] [-ox XLSDEST] [-ot TXTDEST] [-a] [-v]
 
 Latitude and Longitude to Address
 

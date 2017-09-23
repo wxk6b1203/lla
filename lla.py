@@ -6,14 +6,6 @@ sys.path.append(os.getcwd() + '/src')
 #  import getpos as gp
 
 
-def interface():
-    """The command line interface
-    :returns: TODO
-
-    """
-    print("Latitude and Longitude to Address(baidu API)")
-
-
 def main():
     import getpos as gp
     inFormat = ""
