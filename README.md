@@ -89,8 +89,8 @@ optional arguments:
 
 #### Help wantted but does not plan to implement
 
-1. Mercator Coordinate to LL
-2. Convert LL to Address
+1. Convert address to Latitude and Longitude using the baidu API
+2. Mercator Coordinate to Latitude and Longitude
 3. Suspectious api:
 	[Here](http://api.map.baidu.com/?qt=s&wd=%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%A4%A9%E6%B2%B3%E5%8C%BA%E4%B8%AD%E5%B1%B1%E5%A4%A7%E9%81%93%E8%A5%BF55%E5%8F%B7&ie=utf-8)
 	It response a lot of message, but only a Mercator Point is our target
