@@ -53,12 +53,14 @@ tude and longitude to Address")
             inFormat = "xls"
             inFile = args.xls
         if args.txtDest is not None:
-            outFormat = "xls"
-            outFile = args.xlsDest
-        else:
             outFormat = "txt"
             outFile = args.txtDest
-
+        else:
+            outFormat = "xls"
+            outFile = args.xlsDest
+    if args.append is True:
+        gp.getPos(inFormat, inFile, inFormat, inFile, args.append)
+    else:
         gp.getPos(inFormat, inFile, outFormat, outFile, args.append)
 
 

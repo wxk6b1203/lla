@@ -4,6 +4,7 @@ import os
 import re
 import json
 import xlrd
+import xlwt
 import requests
 
 """
@@ -18,6 +19,58 @@ class JSONObject:
 
 class MC(Structure):
     _fields_ = [("x", c_double), ("y", c_double)]
+
+
+def writeIn(res, outFormat, outFile, append):
+    if outFormat is "txt":
+        if append is True:
+            with open(outFile, 'r+') as outf:
+                outf.readline()
+                for item in range(0, len(res)):
+                    line = outf.readline()
+                    res[item] = line + " " + res[item]
+                outf.close()
+            with open(outFile, 'wt') as outf:
+                outf.writelines("longitute  latitude")
+                for item in range(0, len(res)):
+                    outFile.writelines(res[item])
+                outf.close()
+        else:
+            with open(outFile, 'w', encoding='utf-8') as outf:
+                outf.writelines("Address\n")
+                for item in range(0, len(res)):
+                    outf.writelines(res[item]+'\n')
+                outf.close()
+    # Below: writing xls
+    else:
+        if append is True:
+            tag = xlrd.open_workbook(outFile)
+            table = tag.sheets()[0]
+            col0 = table.col_values(0)
+            col1 = table.col_values(1)
+            del col0[0]
+            del col1[0]
+
+            writeTable = xlwt.Workbook()
+            sheet1 = writeTable.add_sheet(u'sheet1', cell_overwrite_ok=True)
+            row0 = [u'longtude', u'latitude', u'address']
+            for i in range(len(row0)):
+                sheet1.write(0, i, row0[i])
+            for i in range(1, len(res)+1):
+                sheet1.write(i, 0, col0[i])
+                sheet1.write(i, 1, col1[i])
+                sheet1.write(i, 2, res[i])
+            writeTable.save(outFile)
+
+        else:
+            writeTable = xlwt.Workbook()
+            sheet1 = writeTable.add_sheet(u'sheet1', cell_overwrite_ok=True)
+            row0 = [u'address']
+            for i in range(0, len(row0)):
+                sheet1.write(0, i, row0[i])
+            for i in range(1, len(res)+1):
+                sheet1.write(i, 0, res[i-1])
+            writeTable.save(outFile)
 
 
 def parseAndRequest(lon, lag):
@@ -79,6 +132,8 @@ def getPos(inFormat, inFile, outFormat, outFile, append):
                                  readLine)[0][0]
                 lag = re.findall('([-+]?\d+(\.\d*)?|\.\d+)([eE][-+]?\d+)?',
                                  readLine)[1][0]
+                lon = float(lon)
+                lag = float(lag)
                 res.append(parseAndRequest(lon, lag))
         except Exception as e:
             inf.close()
@@ -91,29 +146,5 @@ def getPos(inFormat, inFile, outFormat, outFile, append):
         del x[0]
         del y[0]
         for item in range(0, len(x)):
-            res.append(parseAndRequest(x[item], y[item]))
-    # Writing txt
-    if outFormat is "txt":
-        if append is True:
-            with open(inFile, 'r+') as outf:
-                outf.readline()
-                for item in range(0, len(x)):
-                    line = outf.readline()
-                    res[item] = line + " " + res[item]
-                outf.close()
-            with open(inFile, 'wt') as outf:
-                outf.writelines("longitute  latitude")
-                for item in range(0, len(x)):
-                    inFile.writelines(res[item])
-                outf.close()
-        else:
-            with open(outFile, 'w', encoding='utf-8') as outf:
-                for item in range(0, len(x)):
-                    outf.writelines(res[item])
-                    outf.close()
-    # Below: writing xls
-    elif outFormat is "xls":
-        if append is True:
-            writeTable = xlwt.Workbook()
-            sheet1 = f.add_sheet(u'latitude', cell_overwrite_ok=True)
-            row0 = [u'longtude', u'latitude', u'address']
+            res.append(parseAndRequest(float(x[item]), float(y[item])))
+    writeIn(res, outFormat, outFile, append)
