@@ -19,7 +19,7 @@ if [[ ! -d "/usr/local/lib/python3.5/site-packages/requests" ]]; then
 fi
 if [[ ! -d "/usr/local/lib/python3.5/site-packages/xlwt" ]]; then
     echo -e "\033[33mxlwt not installed\033[0m"
-    python3 -m pip install requests
+    python3 -m pip install xlwt
     echo -e "OK!"
 fi
 echo -e "\033[32mAll dependency installed! \033[0m"
