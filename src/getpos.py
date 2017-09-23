@@ -92,7 +92,7 @@ def getPos(inFormat, inFile, outFormat, outFile, append):
         del y[0]
         for item in range(0, len(x)):
             res.append(parseAndRequest(x[item], y[item]))
-
+    # Writing txt
     if outFormat is "txt":
         if append is True:
             with open(inFile, 'r+') as outf:
@@ -100,16 +100,19 @@ def getPos(inFormat, inFile, outFormat, outFile, append):
                 for item in range(0, len(x)):
                     line = outf.readline()
                     res[item] = line + " " + res[item]
+                outf.close()
+            with open(inFile, 'wt') as outf:
+                outf.writelines("longitute  latitude")
                 for item in range(0, len(x)):
                     inFile.writelines(res[item])
                 outf.close()
         else:
-            with open(outFile, 'w') as outf:
+            with open(outFile, 'w', encoding='utf-8') as outf:
                 for item in range(0, len(x)):
                     outf.writelines(res[item])
                     outf.close()
-
-    if outFormat is "xls":
+    # Below: writing xls
+    elif outFormat is "xls":
         if append is True:
             writeTable = xlwt.Workbook()
             sheet1 = f.add_sheet(u'latitude', cell_overwrite_ok=True)
