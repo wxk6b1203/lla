@@ -32,3 +32,6 @@
 .DS_Store
 __pycache__
 vip.xls
+*.xls
+*.txt
+
