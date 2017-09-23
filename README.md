@@ -1,5 +1,5 @@
-# Latitude and longitude to Address
-**Everything is developing.....**
+# Latitude and Longitude to Address
+
 ### Introduction
 LLA(Latitude and longitude to Address) is a little script convert Latitude and longitude position to address using baidu API, which uses a tool to convert ll to MC address, and then get data from Baidu. All the injected logic is based on [saitjr's blog](http://www.saitjr.com/uncategorized/baidu-location-picker-interface.html) and [his repo](https://github.com/saitjr/STConvertLL2MC). The command line interface is done by myself.
 
@@ -53,7 +53,7 @@ Then is the usage.
 ```
 usage: python3 main.py [-h] [-i] [-rt TXT] [-rx XLS] [-ox XLSDEST] [-ot TXTDEST] [-a] [-v]
 
-Lati tude and longitude to Address
+Latitude and Longitude to Address
 
 optional arguments:
   -h, --help          show this help message and exit
