@@ -1,7 +1,7 @@
 # Latitude and Longitude to Address
 
 ### Introduction
-LLA(Latitude and longitude to Address) is a little script convert Latitude and longitude position to address using baidu API, which uses a tool to convert ll to MC address, and then get data from Baidu. All the injected logic is based on [saitjr's blog](http://www.saitjr.com/uncategorized/baidu-location-picker-interface.html) and [his repo](https://github.com/saitjr/STConvertLL2MC). The command line interface is done by myself.
+LLA(Latitude and longitude to Address) is a little script convert Latitude and longitude position to address using baidu API, which uses a tool to convert **Latitude and Longitude** to **Mercator Coordinate**, and then get data from Baidu. All the injected logic is based on [saitjr's blog](http://www.saitjr.com/uncategorized/baidu-location-picker-interface.html) and [his repo](https://github.com/saitjr/STConvertLL2MC). The command line interface is done by myself.
 
 It may only enable address in Mainland China.
 ### Requirement
@@ -27,7 +27,7 @@ A depressing stuff is, the setup srcipt doesnot work most of the time. You shoul
 	113.800681,23.039038
 	广东省东莞市东莞市市辖区振兴路100号
 	```
-	You could input any other thing causing an error to quit.:(
+	You could input any other thing causing an error to quit. :(
 2. TXT mode: input a directory of a txt file, which is formatted into particular format. Output to a file or append it to the back of each line.
 	format:
 	```
@@ -80,3 +80,13 @@ optional arguments:
  - `ox`, `ot` are obay the same rule as above.
  - If you have any suggestions, please open an issue or PR.
  - Feel free to fork it.
+#### Help wantted and might being implemented
+1. Fix bug and function implementation
+2. Let me see.....
+#### Help wantted but does not plan to implement
+1. Mercator Coordinate to LL
+2. Convert LL to Address
+3. Suspectious api:
+	[Here](http://api.map.baidu.com/?qt=s&wd=%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%A4%A9%E6%B2%B3%E5%8C%BA%E4%B8%AD%E5%B1%B1%E5%A4%A7%E9%81%93%E8%A5%BF55%E5%8F%B7&ie=utf-8)
+	It response a lot of message, but only a Mercator Point is our target
+
