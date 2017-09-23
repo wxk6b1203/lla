@@ -11,7 +11,7 @@ def interface():
     :returns: TODO
 
     """
-    print("Latitude and longitude to Address(baidu API)")
+    print("Latitude and Longitude to Address(baidu API)")
 
 
 def main():
@@ -58,10 +58,10 @@ tude and longitude to Address")
         else:
             outFormat = "xls"
             outFile = args.xlsDest
-    if args.append is True:
-        gp.getPos(inFormat, inFile, inFormat, inFile, args.append)
-    else:
-        gp.getPos(inFormat, inFile, outFormat, outFile, args.append)
+        if args.append is True:
+            gp.getPos(inFormat, inFile, inFormat, inFile, args.append)
+        else:
+            gp.getPos(inFormat, inFile, outFormat, outFile, args.append)
 
 
 if __name__ == '__main__':
