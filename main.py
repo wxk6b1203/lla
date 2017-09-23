@@ -22,7 +22,7 @@ def main():
     outFile = ""
 
     parser = argparse.ArgumentParser(description="Lati\
-            tude and longitude to Address")
+tude and longitude to Address")
     parser.add_argument('-i', '--intereactive', action="store_true",
                         default=False, help="Interactive mode.\
                                 Input 'q' to quick")

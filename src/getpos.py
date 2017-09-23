@@ -95,8 +95,22 @@ def getPos(inFormat, inFile, outFormat, outFile, append):
 
     if outFormat is "txt":
         if append is True:
-            with open(inFile, 'w+') as outf:
+            with open(inFile, 'r+') as outf:
                 outf.readline()
                 for item in range(0, len(x)):
                     line = outf.readline()
-                    line = line + res[item]
+                    res[item] = line + " " + res[item]
+                for item in range(0, len(x)):
+                    inFile.writelines(res[item])
+                outf.close()
+        else:
+            with open(outFile, 'w') as outf:
+                for item in range(0, len(x)):
+                    outf.writelines(res[item])
+                    outf.close()
+
+    if outFormat is "xls":
+        if append is True:
+            writeTable = xlwt.Workbook()
+            sheet1 = f.add_sheet(u'latitude', cell_overwrite_ok=True)
+            row0 = [u'longtude', u'latitude', u'address']
