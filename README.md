@@ -1,7 +1,7 @@
 # Latitude and Longitude to Address
 
 ### Introduction
-LLA(Latitude and longitude to Address) is a little script convert Latitude and longitude position to address using baidu API, which uses a tool to convert **Latitude and Longitude** to **Mercator Coordinate**, and then get data from Baidu. All the injected logic is based on [saitjr's blog](http://www.saitjr.com/uncategorized/baidu-location-picker-interface.html) and [his repo](https://github.com/saitjr/STConvertLL2MC). The command line interface is done by myself.
+LLA(Latitude and longitude to Address) is a little script convert latitude and longitude position to address using baidu API, which uses a tool to convert **Latitude and Longitude** to **Mercator Coordinate**, and then get data from Baidu. All the injected logic is based on [saitjr's blog](http://www.saitjr.com/uncategorized/baidu-location-picker-interface.html) and [his repo](https://github.com/saitjr/STConvertLL2MC). The command line interface is done by myself.
 
 It may only enable address in Mainland China.
 ### Requirement
@@ -86,12 +86,13 @@ optional arguments:
 
 1. Fix bug and function implementation
 2. Let me see.....
+3. setup script is not very okey.
 
 #### Help wantted but does not plan to implement
 
 1. Convert address to Latitude and Longitude using the baidu API
 2. Mercator Coordinate to Latitude and Longitude
-3. Suspectious api:
+3. Suspecious api filter by Burp Suite:
 	[Here](http://api.map.baidu.com/?qt=s&wd=%E5%B9%BF%E5%B7%9E%E5%B8%82%E5%A4%A9%E6%B2%B3%E5%8C%BA%E4%B8%AD%E5%B1%B1%E5%A4%A7%E9%81%93%E8%A5%BF55%E5%8F%B7&ie=utf-8)
 	It response a lot of message, but only a Mercator Point is our target
 
