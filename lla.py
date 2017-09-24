@@ -1,9 +1,7 @@
 import os
 import sys
-import time
 import argparse
 sys.path.append(os.getcwd() + '/src')
-#  import getpos as gp
 
 
 def main():
